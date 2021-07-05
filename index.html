@@ -825,12 +825,12 @@
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-shopping-bag"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Produk</span>
+                <span class="info-box-text">Jenis Produk</span>
                 <span class="info-box-number">
-                  10
+                  105
                   <!-- insert php hitung jumlah row produk -->
                 </span>
               </div>
@@ -851,6 +851,7 @@
                   <small>orang</small>
                 </span>
               </div>
+
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
@@ -875,14 +876,29 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-info-circle"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Kategori Produk</span>
+                <span class="info-box-number">
+                  11
+                  <!-- insert php hitung jumlah row produk -->
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+
         </div>
         <!-- /.row -->
 
         <div class="row">
           <div class="col-md-12"><div class="card">
             <div class="card-header">
-              <h5 class="card-title">Line Chart dari transaksi.html</h5>
+              <h5 class="card-title">Penjualan Produk Berdasarkan Kategori</h5>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -894,7 +910,7 @@
             <!-- /.card-header -->
             <div class="card-body">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                   <div class="chart">
                     <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                   </div>
@@ -902,6 +918,11 @@
                 </div>
                 <!-- /.col -->
                 
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <p>tes</p>
+                </div>
               </div>
               <!-- /.row -->
             </div>
@@ -1735,7 +1756,7 @@
     // var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
     var chartData = {
-      labels  : ['Jan', 'Feb', 'Mar', 'Aprl', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+      labels  : ['Jan', 'Feb', 'Mar', 'Aprl'],
       datasets: [
       {
           label               : 'Digital Goods',
@@ -1746,7 +1767,7 @@
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90, 88, 40, 75, 20, 88]
+          data                : [28, 48, 40, 19]
         },
         {
           label               : 'Personal Hyegine',
@@ -1757,106 +1778,106 @@
           pointStrokeColor    : 'rgba(24, 163, 61,1)',
           pointHighlightFill  : '#918aeb',
           pointHighlightStroke: '#918aeb',
-          data                : [30, 45,	82,	98,	52,	77,	63,	88,	83,	91,	46,	45]
+          data                : [30, 45,	82,	98]
         },
         {
           label               : 'Perishable Goods',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(0, 255, 225,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(0, 255, 225,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(0, 255, 225,1)',
-          data                : [25,	30,	64,	49,	39,	94,	30,	56,	46,	47,	86,	93]
+          data                : [25,	30,	64,	49]
         },{
           label               : 'Frozen Food',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(0, 128, 255,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(0, 128, 255,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(0, 128, 255,1)',
-          data                : [43,	97,	38,	59,	73,	92,	66,	56,	46,	33,	87,	91]
+          data                : [43,	97,	38,	59]
         },
         {
           label               : 'Electronics',
           backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
+          borderColor         : 'rgba(220,220,220,1)',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40, 45, 59, 44, 40, 61]
+          data                : [65, 59, 80, 81]
         }
         ,
         {
           label               : 'Houseware',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(217, 0, 255,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(217, 0, 255,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(217, 0, 255,1)',
-          data                : [57,	32,	32,	90,	86,	34,	72,	35,	34,	86,	60,	64]
+          data                : [57,	32,	32,	90]
         },
         {
           label               : 'Fish and Meat',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(255, 92, 160,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(255, 92, 160,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(255, 92, 160,1)',
-          data                : [73,	98,	70,	35,	66,	65,	58,	100,	63,	90,	77,	56]
+          data                : [73,	98,	70,	35]
         },
         {
           label               : 'Snacks',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(255, 0, 0,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(255, 0, 0,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(255, 0, 0,1)',
-          data                : [52,	41,	49,	41,	47,	49,	55,	63,	73,	30,	26,	82]
+          data                : [52,	41,	49,	41]
         },
         {
           label               : 'Drinks',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
+          backgroundColor     : 'rgba(255, 149, 0,1)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(255, 149, 0,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(255, 149, 0,1)',
-          data                : [72,	53,	81,	49,	60,	82,	53,	99,	30,	58,	53,	29]
+          data                : [72,	53,	81,	49]
         },
         {
           label               : 'Cosmetics',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(255, 251, 0,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(255, 251, 0,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(255, 251, 0,1)',
-          data                : [50,	89,	79,	33,	62,	44,	96,	49,	46,	74,	82,	52]
+          data                : [50,	89,	79,	33]
         },
         {
           label               : 'Baby needs',
           backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
+          borderColor         : 'rgba(145, 71, 255,1)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(145, 71, 255,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(145, 71, 255,1)',
-          data                : [47,	90,	55,	72,	73,	31,	38,	74,	84,	85,	29,	94]
+          data                : [47,	90,	55,	72]
         }
       ]
     }
