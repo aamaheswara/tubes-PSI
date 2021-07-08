@@ -920,8 +920,11 @@
                 
               </div>
               <div class="row">
-                <div class="col-md-3">
-                  <p>tes</p>
+                <div class="col-md-12">
+                  <p class="text-center">
+                    <strong>Top Category: </strong>
+                    <input type="text" class="" disabled>
+                  </p>
                 </div>
               </div>
               <!-- /.row -->
@@ -933,25 +936,10 @@
 
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
+                <h5 class="card-title">Monthly Product recap Report</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                      <i class="fas fa-wrench"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <a href="#" class="dropdown-item">Action</a>
-                      <a href="#" class="dropdown-item">Another action</a>
-                      <a href="#" class="dropdown-item">Something else here</a>
-                      <a class="dropdown-divider"></a>
-                      <a href="#" class="dropdown-item">Separated link</a>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
@@ -959,104 +947,124 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-8">
-                    <p class="text-center">
-                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                    </p>
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="text-center">
+                          <strong>Periode: </strong>
+                          <input type="month" min="2018-03" name="">
+                        </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="text-center">Produk: 
+                        <select class="select2" name="" id="" >
+                          <option value="Drinks">Drinks</option>
+                          <option value="Snacks">Snacks</option>
+                          <option value="Baby-Need">Baby Need</option>
+                          <option value="Meat-Fish">Meat and Fish</option>
+                        </select>
+                        </p>
+                      </div>
+                      
+                    </div>
+                    
 
                     <div class="chart">
                       <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                      <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
-                  <!-- /.col -->
-                  <div class="col-md-4">
+
+                  <div class="col-md-12">
                     <p class="text-center">
-                      <strong>Goal Completion</strong>
+                      <strong>Produk Teratas</strong>
                     </p>
+                  </div>
 
-                    <div class="progress-group">
-                      Add Products to Cart
-                      <span class="float-right"><b>160</b>/200</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" style="width: 80%"></div>
-                      </div>
-                    </div>
+                  <!-- /.col -->
+                  <div class="col-md-6">
+                    
+
+                    
                     <!-- /.progress-group -->
 
                     <div class="progress-group">
-                      Complete Purchase
-                      <span class="float-right"><b>310</b>/400</span>
+                      Coca-Cola
+                      <span class="float-right"><b>700</b></span>
                       <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 75%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      <span class="progress-text">Visit Premium Page</span>
-                      <span class="float-right"><b>480</b>/800</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 60%"></div>
+                        <div class="progress-bar bg-danger" style="width: 26%"></div>
                       </div>
                     </div>
 
                     <!-- /.progress-group -->
+
                     <div class="progress-group">
-                      Send Inquiries
-                      <span class="float-right"><b>250</b>/500</span>
+                      Sprite
+                      <span class="float-right"><b>600</b></span>
                       <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                        <div class="progress-bar bg-info" style="width: 23%"></div>
                       </div>
                     </div>
-                    <!-- /.progress-group -->
+                    
+
+                    <div class="progress-group">
+                      <span class="progress-text">UltraMilk</span>
+                      <span class="float-right"><b>500</b></span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-success" style="width: 20%"></div>
+                      </div>
+                    </div>
+                    
+                    
                   </div>
                   <!-- /.col -->
+
+                  <!-- /.col -->
+                  <div class="col-md-6">
+                    
+
+                    <div class="progress-group">
+                      Frestea
+                      <span class="float-right"><b>400</b></span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-warning" style="width: 17%"></div>
+                      </div>
+                    </div>
+                    <!-- /.progress-group -->
+
+                    <div class="progress-group">
+                      Aqua
+                      <span class="float-right"><b>300</b></span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" style="width: 12%"></div>
+                      </div>
+                    </div>
+                    
+
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                      Teh Kotak
+                      <span class="float-right"><b>100</b></span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-secondary" style="width: 3%"></div>
+                      </div>
+                    </div>
+                    
+
+                    <!-- /.progress-group -->
+                    
+                    
+                  <!-- /.col -->
+
+                  
                 </div>
                 <!-- /.row -->
               </div>
+              
+              
               <!-- ./card-body -->
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-                      <h5 class="description-header">$35,210.43</h5>
-                      <span class="description-text">TOTAL REVENUE</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
-                      <h5 class="description-header">$10,390.90</h5>
-                      <span class="description-text">TOTAL COST</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
-                      <h5 class="description-header">$24,813.53</h5>
-                      <span class="description-text">TOTAL PROFIT</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block">
-                      <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
-                      <h5 class="description-header">1200</h5>
-                      <span class="description-text">GOAL COMPLETIONS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                </div>
-                <!-- /.row -->
-              </div>
+              
               <!-- /.card-footer -->
             </div>
             <!-- /.card -->
@@ -1937,6 +1945,62 @@
       options: lineChartOptions
     })
 
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData        = {
+      labels: [
+          'Coca-Cola',
+          'UltraMilk',
+          'Frestea',
+          'Sprite',
+          'Aqua',
+          'Teh-Kotak',
+      ],
+      datasets: [
+        {
+          data: [700,500,400,600,300,100],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var pieOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: pieData,
+      options: pieOptions
+    })
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = $.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas, {
+      type: 'bar',
+      data: barChartData,
+      options: barChartOptions
+    })
+
+    
   })
 </script>
 </body>
