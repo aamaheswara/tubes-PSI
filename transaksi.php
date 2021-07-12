@@ -263,9 +263,9 @@ $dataHasil = queryTransaksi($tahun);
               <div class="row">
                 <div class="col-md-12">
                   <p class="text-center">
+                    <form action="post" name="yearDropdown" action="transaksi.php">
                     <strong>Tahun: </strong>
-                    <form action="get" name="yearDropdown" action="transaksi.php">
-                      <select name="year-selector" id="year-selector">
+                      <select name="year-selector" id="year-selector" onchange="this.form.submit()">
                         <!-- onchange="OnSelectionChange()" -->
 
                         <option value="2016" selected>2016</option>
@@ -556,17 +556,16 @@ $dataHasil = queryTransaksi($tahun);
     // }
 
     function OnSelectionChange(){
-      alert("Option Selection berhasil memanggil OnSelectionChange()");
+      alert("berhasil memanggil OnSelectionChange()");
       
       // lineChartData.datasets.forEach((data)=>{data.pop();})
 
-      var e = document.getElementById("year-selector");
-      var selectedYear = e.value;
+      // var e = document.getElementById("year-selector");
+      // var selectedYear = e.value;
 
       alert("selectedYear adalah "+selectedYear);
 
-
-      
+            
       lineChart.update();
 
     }
