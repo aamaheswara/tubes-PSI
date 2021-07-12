@@ -1,5 +1,18 @@
 <?php
 require 'functionsTransaksi.php';
+$tahun = $_GET['year-selector'];
+
+// $grafTransaksiConn = mysqli_connect("localhost", "root", "", "tubes-psi");
+
+
+function queryTransaksi($tahun) {
+  global $grafTransaksiConn;
+  $conntr = "SELECT COUNT(id) FROM `transaksi` WHERE tanggal LIKE '$tahun%'";
+  $hasil = mysqli_query($grafTransaksiConn, $conntr);
+  return $hasil;
+}
+
+$dataHasil = queryTransaksi($tahun);
 
 ?>
 
@@ -26,8 +39,11 @@ require 'functionsTransaksi.php';
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -248,14 +264,19 @@ require 'functionsTransaksi.php';
                 <div class="col-md-12">
                   <p class="text-center">
                     <strong>Tahun: </strong>
-                    <select name="" id="">
-                      <option value="">2016</option>
-                      <option value="">2017</option>
-                      <option value="">2018</option>
-                      <option value="">2019</option>
-                      <option value="">2020</option>
-                      <option value="">2021</option>
-                    </select>
+                    <form action="get" name="yearDropdown" action="transaksi.php">
+                      <select name="year-selector" id="year-selector">
+                        <!-- onchange="OnSelectionChange()" -->
+
+                        <option value="2016" selected>2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                      </select>
+                    </form>
+                    
                   </p>
                 </div>
               </div>
@@ -371,7 +392,15 @@ require 'functionsTransaksi.php';
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [4154, 1452, 1509, 2137, 1881, 4172, 2126, 2069, 4933, 1655, 1810, 2579]
+          data                : <?php function echoData(){
+            echo '$dataHasil';
+          }
+          {
+            # code...
+          }?>
+          // [4154, 1452, 1509, 2137, 
+          // 1881, 4172, 2126, 2069, 4933, 1655, 1810, 2579]
+          //echo ke sini "data"
         },
         
       ]
@@ -520,5 +549,29 @@ require 'functionsTransaksi.php';
     
   })
 </script>
+
+<script>
+    // function myFunction() {
+    //   alert("Hello! I am an alert box!");
+    // }
+
+    function OnSelectionChange(){
+      alert("Option Selection berhasil memanggil OnSelectionChange()");
+      
+      // lineChartData.datasets.forEach((data)=>{data.pop();})
+
+      var e = document.getElementById("year-selector");
+      var selectedYear = e.value;
+
+      alert("selectedYear adalah "+selectedYear);
+
+
+      
+      lineChart.update();
+
+    }
+
+
+  </script>
 </body>
 </html>
