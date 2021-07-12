@@ -1,3 +1,8 @@
+<?php
+require 'functionsTransaksi.php';
+
+?>
+
 <!DOCTYPE html>
 <!-- Test edit -->
 <!-- test kedua -->
