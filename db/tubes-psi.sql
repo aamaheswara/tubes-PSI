@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jul 2021 pada 04.14
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.0
+-- Generation Time: Jul 12, 2021 at 05:20 AM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kasir`
+-- Table structure for table `kasir`
 --
 
 CREATE TABLE `kasir` (
@@ -35,7 +34,7 @@ CREATE TABLE `kasir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kasir`
+-- Dumping data for table `kasir`
 --
 
 INSERT INTO `kasir` (`id`, `id_toko`, `Nama`) VALUES
@@ -47,7 +46,7 @@ INSERT INTO `kasir` (`id`, `id_toko`, `Nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -56,7 +55,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id`, `nama-kategori`) VALUES
@@ -75,7 +74,7 @@ INSERT INTO `kategori` (`id`, `nama-kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `manajer`
+-- Table structure for table `manajer`
 --
 
 CREATE TABLE `manajer` (
@@ -88,7 +87,7 @@ CREATE TABLE `manajer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `manajer`
+-- Dumping data for table `manajer`
 --
 
 INSERT INTO `manajer` (`id`, `username`, `password`, `nama`, `id_toko`, `email`) VALUES
@@ -98,7 +97,7 @@ INSERT INTO `manajer` (`id`, `username`, `password`, `nama`, `id_toko`, `email`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -113,7 +112,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id`, `username`, `password`, `nama`, `shift`, `id_toko`, `manajer_id`, `email`) VALUES
@@ -124,7 +123,7 @@ INSERT INTO `pegawai` (`id`, `username`, `password`, `nama`, `shift`, `id_toko`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -135,19 +134,28 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id`, `nama_produk`, `kategori_id`, `harga_satuan`) VALUES
 (2, 'Aqua', 11, 2000),
 (3, 'Sapu Rumah', 2, 25000),
 (4, 'Lays', 8, 10000),
-(5, 'Dairy Milk', 8, 28000);
+(5, 'Dairy Milk', 8, 28000),
+(6, 'Paracetamol', 7, 5000),
+(7, 'Daging Sapi 1kg', 10, 50000),
+(10, 'Sendok Selusin', 1, 20000),
+(11, 'Dancow', 3, 35000),
+(12, 'Pampers Popok', 4, 40000),
+(13, 'Tisu Toilet', 5, 10000),
+(14, 'Maybelline Lipstick', 6, 90000),
+(15, 'Sania 1L', 9, 15000),
+(16, 'Bimoli 1L', 9, 15500);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `shift_kasir`
+-- Table structure for table `shift_kasir`
 --
 
 CREATE TABLE `shift_kasir` (
@@ -156,7 +164,7 @@ CREATE TABLE `shift_kasir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `shift_kasir`
+-- Dumping data for table `shift_kasir`
 --
 
 INSERT INTO `shift_kasir` (`id_pegawai`, `id_kasir`) VALUES
@@ -166,7 +174,7 @@ INSERT INTO `shift_kasir` (`id_pegawai`, `id_kasir`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `toko`
+-- Table structure for table `toko`
 --
 
 CREATE TABLE `toko` (
@@ -176,7 +184,7 @@ CREATE TABLE `toko` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `toko`
+-- Dumping data for table `toko`
 --
 
 INSERT INTO `toko` (`id`, `nama`, `lokasi`) VALUES
@@ -186,7 +194,7 @@ INSERT INTO `toko` (`id`, `nama`, `lokasi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -198,10 +206,24 @@ CREATE TABLE `transaksi` (
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `total_harga`, `jumlah`, `rating`, `metode`, `tanggal`) VALUES
+(1, 10000, 5, 0, 'Cash', '2021-01-01'),
+(2, 45000, 3, 0, 'Cash', '2021-02-01'),
+(3, 0, 0, 0, 'Cash', '2021-03-01'),
+(4, 0, 0, 0, 'Cash', '2021-04-01'),
+(5, 0, 0, 0, 'E-Money', '2021-05-01'),
+(6, 0, 0, 0, 'Kartu', '2021-06-01'),
+(7, 0, 0, 0, 'E-Money', '2021-07-01'),
+(8, 0, 0, 0, 'Cash', '2021-07-11');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi_produk`
+-- Table structure for table `transaksi_produk`
 --
 
 CREATE TABLE `transaksi_produk` (
@@ -212,31 +234,40 @@ CREATE TABLE `transaksi_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `transaksi_produk`
+--
+
+INSERT INTO `transaksi_produk` (`id_produk`, `id_transaksi`, `jumlah_produk`, `subtotal`) VALUES
+(2, 1, 5, 10000),
+(3, 2, 1, 25000),
+(4, 2, 2, 20000);
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `kasir`
+-- Indexes for table `kasir`
 --
 ALTER TABLE `kasir`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_toko` (`id_toko`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `manajer`
+-- Indexes for table `manajer`
 --
 ALTER TABLE `manajer`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_toko` (`id_toko`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id`),
@@ -244,122 +275,122 @@ ALTER TABLE `pegawai`
   ADD KEY `manajer_id` (`manajer_id`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kategori` (`kategori_id`);
 
 --
--- Indeks untuk tabel `shift_kasir`
+-- Indexes for table `shift_kasir`
 --
 ALTER TABLE `shift_kasir`
   ADD KEY `id_kasir` (`id_kasir`),
   ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
--- Indeks untuk tabel `toko`
+-- Indexes for table `toko`
 --
 ALTER TABLE `toko`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi_produk`
+-- Indexes for table `transaksi_produk`
 --
 ALTER TABLE `transaksi_produk`
   ADD KEY `id_produk` (`id_produk`),
   ADD KEY `id_transaksi` (`id_transaksi`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `kasir`
+-- AUTO_INCREMENT for table `kasir`
 --
 ALTER TABLE `kasir`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `manajer`
+-- AUTO_INCREMENT for table `manajer`
 --
 ALTER TABLE `manajer`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `produk`
+-- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `toko`
+-- AUTO_INCREMENT for table `toko`
 --
 ALTER TABLE `toko`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `kasir`
+-- Constraints for table `kasir`
 --
 ALTER TABLE `kasir`
   ADD CONSTRAINT `kasir_ibfk_1` FOREIGN KEY (`id_toko`) REFERENCES `toko` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `manajer`
+-- Constraints for table `manajer`
 --
 ALTER TABLE `manajer`
   ADD CONSTRAINT `manajer_ibfk_1` FOREIGN KEY (`id_toko`) REFERENCES `toko` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `pegawai`
+-- Constraints for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`id_toko`) REFERENCES `toko` (`id`),
   ADD CONSTRAINT `pegawai_ibfk_2` FOREIGN KEY (`manajer_id`) REFERENCES `manajer` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `produk`
+-- Constraints for table `produk`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `shift_kasir`
+-- Constraints for table `shift_kasir`
 --
 ALTER TABLE `shift_kasir`
   ADD CONSTRAINT `shift_kasir_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`),
   ADD CONSTRAINT `shift_kasir_ibfk_2` FOREIGN KEY (`id_kasir`) REFERENCES `kasir` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `transaksi_produk`
+-- Constraints for table `transaksi_produk`
 --
 ALTER TABLE `transaksi_produk`
   ADD CONSTRAINT `transaksi_produk_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
