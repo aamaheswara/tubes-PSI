@@ -15,7 +15,7 @@ $id_user=$_SESSION["id"];
   $email=$_SESSION["email"];
   $toko = $_SESSION["toko"];  
 
-  $sql = "select * from toko where id='".$toko."'";
+$sql = "select * from toko where id='".$toko."'";
 $hasil = mysqli_query ($kon,$sql);
 $jumlah = mysqli_num_rows($hasil);
       
@@ -23,6 +23,19 @@ $jumlah = mysqli_num_rows($hasil);
 if ($jumlah>0) {
     $row = mysqli_fetch_assoc($hasil);
     $toko_nama = $row["nama"];
+    
+}
+$sql2 = "select * from pegawai where id_toko='".$toko."'";
+$hasil = mysqli_query ($kon,$sql2);
+$jumlah = mysqli_num_rows($hasil);
+      
+
+if ($jumlah>0) {
+    $row = mysqli_fetch_assoc($hasil);
+    $Pusername=$row["username"];
+    $Pnama=$row["nama"];
+    $Pemail=$row["email"];
+    $Pid = $row["id"]; 
     
 }
 ?>
@@ -71,6 +84,25 @@ if ($jumlah>0) {
   <!-- Script JS u/ tabel transaksi -->
   
   <script type="text/javascript">
+    myFunction(e){
+        if(e.target.value = "Aqua"){
+          document.getElementById("hargabox").value = "2000";
+          document.getElementById("hargabox").placeholder = "2000";
+        }
+        else(e.target.value = "Dairy Milk"){
+          document.getElementById("hargabox").value = "2000";
+          document.getElementById("hargabox").placeholder = "2000";
+        }
+        else(e.target.value = "Sapu Rumah"){
+          document.getElementById("hargabox").value = "2000";
+          document.getElementById("hargabox").placeholder = "2000";
+        }
+        else(e.target.value = "Lays"){
+          document.getElementById("hargabox").value = "2000";
+          document.getElementById("hargabox").placeholder = "2000";
+        }
+    }
+
         function addField(n) {
         var myTable = document.getElementById("t-produk");
         var currentIndex = myTable.rows.length;
@@ -83,7 +115,7 @@ if ($jumlah>0) {
         // buat isi dropdown options dari SELECT
         document.body.appendChild(productBox);
 
-        var items = ["Aqua","Permen","Sapu"];
+        var items = ["Aqua","Sapu Rumah","Lays", "Dairy Milk"];
         for(var i = 0;i<items.length;i++) {
           var item = items[i];
           var newOption = document.createElement("option");
@@ -92,7 +124,7 @@ if ($jumlah>0) {
           newOption.appendChild(textNode);
           productBox.appendChild(newOption);
         }     
-        
+         
 
         var hargaBox = document.createElement("input");
         hargaBox.setAttribute("name", "hargabox" + currentIndex);
@@ -100,6 +132,7 @@ if ($jumlah>0) {
         hargaBox.setAttribute("class", "form-control");
         hargaBox.setAttribute("disabled", "true");
 
+        
         var jumlahprodukBox = document.createElement("input");
         jumlahprodukBox.setAttribute("name", "jumlahitem" + currentIndex);
         jumlahprodukBox.setAttribute("type", "number");
@@ -125,7 +158,9 @@ if ($jumlah>0) {
          currentCell = currentRow.insertCell(-1);
          currentCell.appendChild(subtotalbox);
         }
-
+        
+        
+         
 
     // function addField (argument) {
     //     var myTable = document.getElementById("t-produk");
@@ -177,7 +212,7 @@ if ($jumlah>0) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -212,7 +247,7 @@ if ($jumlah>0) {
           <img src="dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Username</a>
+          <a href="#" class="d-block"><?php echo "$nama";?></a>
         </div>
       </div>
 
@@ -234,7 +269,7 @@ if ($jumlah>0) {
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="index.html" class="nav-link ">
+                <a href="index.php" class="nav-link ">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     DashBoard
@@ -302,14 +337,11 @@ if ($jumlah>0) {
 
                   <div class="form-group">
                     <label>ID Pegawai</label>
-                    <select class="form-control select2" style="width: 100%;">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
+                    <select class="form-control select2" style="width: 100%;" name="pegawai">
+                      <option disabled selected>Pilih</option>
+
+                      
+
                     </select>
                   </div>
                   
@@ -369,15 +401,21 @@ if ($jumlah>0) {
                       <tbody class="tbody-light">
                         <tr>
                           <td>
-                            <select class="form-control select2" style="width: 100%;" name="produkbox">
-                              <option>Aqua</option>
-                              <option>Permen</option>
-                              <option>Sapu</option>
+                            <form action="GET">
+                            <select class="form-control select2" style="width: 100%;" name="produkbox" onchange="myFunction(event)">
+                            <option disabled selected>Pilih</option>
+                              <option value="Aqua">Aqua</option>
+                              <option value="Sapu Rumah">Sapu Rumah</option>
+                              <option value="Lays">Lays</option>
+                              <option value="Diary Milk">Dairy Milk</option>
+                            </form>
+
                             </select>
                           </td>
                           <td>
-                            <input class="form-control" type="text" name="hargabox" id="" disabled>
-                          </td>
+                            <input class="form-control" type="text" name="hargabox" id="hargabox"  >
+                          
+                        </td>
                           <td>
                             <input class="form-control" type="number" name="jumlahitem" id="">
                           </td>

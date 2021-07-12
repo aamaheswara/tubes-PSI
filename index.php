@@ -123,7 +123,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="input.html" class="nav-link">
+            <a href="input.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Input Data
@@ -155,7 +155,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               
             </ol>
           </div><!-- /.col -->
