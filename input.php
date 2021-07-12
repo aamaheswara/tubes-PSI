@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <!-- test comment -->
+<?php
+session_start();
+require "php/config.php";
+
+if (!isset($_SESSION["username"])) {
+  echo "Anda harus login dulu <br><a href='login.php'>Klik disini</a>";
+  exit;
+}
+
+$id_user=$_SESSION["id"];
+  $username=$_SESSION["username"];
+  $nama=$_SESSION["nama"];
+  $email=$_SESSION["email"];
+  $toko = $_SESSION["toko"];  
+
+  $sql = "select * from toko where id='".$toko."'";
+$hasil = mysqli_query ($kon,$sql);
+$jumlah = mysqli_num_rows($hasil);
+      
+
+if ($jumlah>0) {
+    $row = mysqli_fetch_assoc($hasil);
+    $toko_nama = $row["nama"];
+    
+}
+?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test AdminLTE 3 | Dashboard 2</title>
+  <title>Input Data</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -266,19 +293,11 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form method="post" action="php/input-action.php">
                 <div class="card-body">
                   <div class="form-group">
                     <label>ID Toko</label>
-                    <select class="form-control select2" style="width: 100%;">
-                      <option>YOG/1</option>
-                      <option>YOG/2</option>
-                      <option>YOG/3</option>
-                      <option>MLG/1</option>
-                      <option>SUB/1</option>
-                      <option>SUB/2</option>
-                      <option>JKT/1</option>
-                    </select>
+                    <input type="text" name="toko" class="form-control" value="<?php echo $toko_nama;?>" placeholder="<?php echo $toko_nama;?>" disabled>
                   </div>
 
                   <div class="form-group">

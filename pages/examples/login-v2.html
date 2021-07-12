@@ -14,6 +14,9 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
+
+
+
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
@@ -24,9 +27,9 @@
     <div class="card-body">
       <p class="login-box-msg">Sign in untuk dapat menggunakan sistem</p>
 
-      <form action="../../index.html" method="post">
+      <form action="../../php/login.php" method="POST">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" name="username" id="username" placeholder="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +37,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -43,7 +46,7 @@
         </div>
         <div class="row form-group">
           
-            <button type="submit" class="btn btn-primary btn-block form-control">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block form-control" name="login" value="Login">Sign In</button>
           
           <!-- /.col -->
         </div>
@@ -71,5 +74,26 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<script>
+  function validate() {
+      var $valid = true;
+      document.getElementById("user_info").innerHTML = "";
+      document.getElementById("password_info").innerHTML = "";
+      
+      var userName = document.getElementById("user_name").value;
+      var password = document.getElementById("password").value;
+      if(userName == "") 
+      {
+          document.getElementById("user_info").innerHTML = "required";
+        $valid = false;
+      }
+      if(password == "") 
+      {
+        document.getElementById("password_info").innerHTML = "required";
+          $valid = false;
+      }
+      return $valid;
+  }
+  </script>
 </body>
 </html>

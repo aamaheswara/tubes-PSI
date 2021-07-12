@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <!-- Test edit -->
 <!-- test kedua -->
+
+<?php
+  session_start();
+  
+
+  if (!isset($_SESSION["username"])) {
+    echo "Anda harus login dulu <br><a href='login.php'>Klik disini</a>";
+    exit;
+  }
+  
+  $id_user=$_SESSION["id"];
+  $username=$_SESSION["username"];
+  $nama=$_SESSION["nama"];
+  $email=$_SESSION["email"];
+  $toko = $_SESSION["toko"];
+?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -71,7 +88,7 @@
           <img src="dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Username</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['nama'];?></a>
         </div>
       </div>
 
@@ -129,7 +146,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Toko YOG/01</h1>
+            <h1 class="m-0">
+            <?php
+
+            ?>
+
+            </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
